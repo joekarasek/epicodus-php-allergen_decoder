@@ -3,25 +3,31 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        <title>Coin Machine</title>
+        <title>Allergy Decoder</title>
     </head>
     <body>
         <div class="container">
-            <h1>Coin Machine!</h1>
-            <h3><em>Because you can't count?</em></h3>
+            <h1>Allergy Decoder</h1>
+            <h3><em>Because you know your code but not what you're allergic to!</em></h3>
 
             <form action="/return_results">
                 <div class="form-groups">
-                    <label for="coin">Enter Cents(as a whole number): </label>
-                    <input type="number" name="coin" id="coin">
+                    <label for="allergy_code">Enter an allergy code (0 to 255):</label>
+                    <input type="number" name="allergy_code" id="allergy_code">
                 </div>
                 <button class="btn btn-success" type="submit">Count change!</button>
             </form><br>
 
             {% if results %}
-                {% for key, result in results %}
-                    <p>There are {{ result }} {{ key }}.</p>
-                {% endfor %}
+                <ul>
+                    {% for key, result in results %}
+                        {% if result %}
+                            <li><strong>You are allergic to {{ key }}.</strong></li>
+                        {% else %}
+                            <li>You are not allergic to {{ key }}.</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
             {% endif %}
 
         </div>

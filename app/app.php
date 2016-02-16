@@ -1,6 +1,6 @@
 <?php
     require_once __DIR__."/../vendor/autoload.php";
-    require_once __DIR__."/../src/Coins.php";
+    require_once __DIR__."/../src/Allergy.php";
 
     $app = new Silex\Application();
 
@@ -14,9 +14,12 @@
     });
 
     $app->get("/return_results", function() use ($app) {
+        $my_allergy = new Allergy;
+        $results = $my_allergy->returnAllergens($_GET['allergy_code']);
 
-        return $app['twig']->render('index.html.twig'
-        );
+        return $app['twig']->render('index.html.twig', array(
+            'results' => $results
+        ));
     });
 
     return $app;
