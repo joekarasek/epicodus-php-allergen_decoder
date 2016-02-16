@@ -1,11 +1,22 @@
-# Change Checker
-#### _Returns the amount of quarters, dimes, nickels, and pennies , 2/16/2016_
+# Allergen Checker
+#### _Returns your Allergens based on your Allergy Score! , 2/16/2016_
 
 #### By _**Joseph Karasek and Alex Fallenstedt**_
 
 ## Description
 
-_Enter an amount of change (as a whole number) and get the correct change back._
+_Enter your allergy score to figure out what you are allergic to. You allergy score is a sum of values from the following table:_
+
+allergen     | score
+-------------|---
+eggs         | 1
+peanuts      | 2
+shellfish    | 4
+strawberries | 8
+tomatoes     | 16
+chocolate    | 32
+pollen       | 64
+cats         | 128
 
 _The goal of this project was to practice BDD using PHP Unit._
 
